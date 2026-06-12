@@ -39,9 +39,8 @@ cd LineTrace-AGV-Pico
 
 # ビルド
 # VS Code の「Compile Project」を実行
-,,,
+
 ## 回路図・ピン配置
-,,,
 
 | 信号 | Pico 2W GPIO | 接続先 |
 |---|---|---|
