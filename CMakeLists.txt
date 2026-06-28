@@ -31,7 +31,11 @@ include(pico_sdk_import.cmake)
 project(line-trace-agv-pico C CXX ASM)
 
 # Initialise the Raspberry Pi Pico SDK
+# Initialise the Raspberry Pi Pico SDK
 pico_sdk_init()
+
+# FreeRTOS を取り込む
+include(FreeRTOS_Kernel_import.cmake)
 
 # Add executable. Default name is the project name, version 0.1
 
@@ -45,9 +49,14 @@ pico_enable_stdio_uart(line-trace-agv-pico 0)
 pico_enable_stdio_usb(line-trace-agv-pico 1)
 
 # Add the standard library to the build
+# Add the standard library to the build
 target_link_libraries(line-trace-agv-pico
-        pico_stdlib)
-
+        pico_stdlib
+        hardware_pwm
+        pico_cyw43_arch_lwip_sys_freertos
+        pico_lwip_http
+        FreeRTOS-Kernel
+        FreeRTOS-Kernel-Heap4)
 # Add the standard include files to the build
 target_include_directories(line-trace-agv-pico PRIVATE
         ${CMAKE_CURRENT_LIST_DIR}

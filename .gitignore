@@ -57,3 +57,5 @@ dkms.conf
 config.h
 
 build/
+# FreeRTOS Kernel (clone separately - see README)
+FreeRTOS-Kernel/
